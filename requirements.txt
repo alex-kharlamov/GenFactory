@@ -1,0 +1,12 @@
+#TODO add correct requirements and conda env
+lightning==2.1.2
+numpy
+tqdm
+sentencepiece==0.1.99
+tensorboardX
+tensorboard
+
+jsonargparse
+zstandard
+pandas
+pyarrow
