@@ -49,4 +49,5 @@ if __name__ == "__main__":
     config = Config()
     seed_everything(config.seed)
     trainer = LLMTrainer(config)
+    # TODO add proper training resume handling
     trainer.fit()

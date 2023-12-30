@@ -34,7 +34,7 @@ class LLMTrainer(BaseTrainer):
         lr_decay_iters = max_iters
         log_iter_interval = self.config.log_step_interval * gradient_accumulation_steps
 
-        # Todo: implement proper dataloader state save\resume handling
+        # TODO: implement proper dataloader state save\resume handling
         checkpoint_callback = ModelCheckpoint(dirpath=os.path.join(self.config.data.checkpoint_dir, self.config.config_name),
                                                every_n_train_steps=self.config.save_step_interval // gradient_accumulation_steps,
                                                verbose=True,

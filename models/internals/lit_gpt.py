@@ -232,7 +232,7 @@ class CausalSelfAttention(nn.Module):
         # apply rope in fp32 significanly stabalize training
         # fused rope expect (batch_size, seqlen, nheads, headdim)
 
-        # Todo check if type_as is necessary and correct
+        # TODO apply_rotary_emb_func check if type_as is necessary and correct
         q = apply_rotary_emb_func(q, cos.type_as(q), sin.type_as(q), False, True)
         k = apply_rotary_emb_func(k, cos.type_as(k), sin.type_as(k), False, True)
         
