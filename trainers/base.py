@@ -9,7 +9,7 @@ from models.utils import get_default_supported_precision
 class Trainer:
     def __init__(self, config: Config):
         self.config = config
-        tpu = False #TODO: add proper tpu handling
+        tpu = False # Todo: add proper tpu handling
         self.precision = self.config.optimization.precision or get_default_supported_precision(training=True, tpu=tpu)
 
         if self.config.num_of_devices > 1:
@@ -34,7 +34,7 @@ class Trainer:
 
 
     def fit(self):
-        assert self.train_dataloader is not None, "Please create dataloaders first" #TODO add proper assert
+        assert self.train_dataloader is not None, "Please create dataloaders first" # Todo add proper assert
         assert self.val_dataloader is not None, "Please create dataloaders first"
         assert self.model is not None, "Please create model first"
         assert self.lightning_trainer is not None, "Please create lightning trainer first"

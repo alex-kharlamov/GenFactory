@@ -1,4 +1,4 @@
-#TODO add correct requirements and conda env
+# Todo add correct requirements and conda env
 lightning==2.1.2
 numpy
 tqdm

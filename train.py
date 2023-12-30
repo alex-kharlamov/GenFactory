@@ -25,7 +25,7 @@ hparams = {k: v for k, v in locals().items() if isinstance(v, (int, float, str))
 # wandb_logger = WandbLogger()
 
 
-#TODO fix lr scheduler
+# TODO fix lr scheduler
 # learning rate decay scheduler (cosine with warmup)
 def get_lr(it):
     # 1) linear warmup for warmup_iters steps
@@ -43,7 +43,7 @@ def get_lr(it):
 
 if __name__ == "__main__":
     torch.set_float32_matmul_precision("high")
-    #TODO add proper config loading from command line
+    # TODO add proper config loading from command line
     from configs.homegpt_small import Config
 
     config = Config()

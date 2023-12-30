@@ -5,7 +5,7 @@ import random
 from torch.utils.data import DataLoader
 from .packed_dataset import PackedDataset, CombinedDataset
 
-#TODO fix correct prefix
+# Todo fix correct prefix
 train_data_config = [
     ("", 1)
     # ("train_slim", 0.693584),

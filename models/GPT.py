@@ -17,7 +17,7 @@ class GPT(L.LightningModule):
         self.config = config
         self.optim_config = optim_config
 
-        self.dummy_world_size = 1 #TODO: add correct world size handling
+        self.dummy_world_size = 1 # Todo: add correct world size handling
 
         with torch.device("meta"):
             meta_model = LitGPT(self.config)
@@ -48,7 +48,7 @@ class GPT(L.LightningModule):
         return self.model(inputs)
 
     def training_step(self, batch, batch_idx):
-        #TODO fix train_iter lr calculation
+        # Todo fix train_iter lr calculation
         # # determine and set the learning rate for this iteration
         # lr = get_lr(state["iter_num"]) if decay_lr else learning_rate
         # for param_group in optimizer.param_groups:
