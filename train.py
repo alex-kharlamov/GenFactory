@@ -1,5 +1,6 @@
 import glob
 import math
+import os
 import sys
 import time
 from pathlib import Path
@@ -45,7 +46,7 @@ if __name__ == "__main__":
     torch.set_float32_matmul_precision("high")
     # TODO add proper config loading from command line
     from configs.homegpt_small import Config
-
+    print(f"files: {len(os.listdir('/mnt/d/SlimPajama/SlimPajama28B/'))}")
     config = Config()
     seed_everything(config.seed)
     trainer = LLMTrainer(config)

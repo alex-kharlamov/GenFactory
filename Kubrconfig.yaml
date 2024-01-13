@@ -1,0 +1,20 @@
+job_type: Volcano
+
+container_config:
+    image: "axcel/genf:dev"
+    entrypoint: "python /genf/train.py"
+
+data_config:
+    volumes:
+        - name: "genf"
+          type: "hostPath"
+          mount_path: "/mnt/d:/mnt/d"
+
+resource_config:
+    cpu: 16
+    mem: 32Gi
+
+exp_config:
+    namespace: "default"
+    exp_name: "genf-test"
+    task_max_retries: 1

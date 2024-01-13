@@ -8,8 +8,12 @@ from models.utils import get_default_supported_precision
 
 class Trainer:
     def __init__(self, config: Config):
+        self.lightning_trainer = None
+        self.model = None
+        self.val_dataloader = None
+        self.train_dataloader = None
         self.config = config
-        tpu = False # TODO: add proper tpu handling
+        tpu = False  # TODO: add proper tpu handling
         self.precision = self.config.optimization.precision or get_default_supported_precision(training=True, tpu=tpu)
 
         if self.config.num_of_devices > 1:
@@ -27,15 +31,13 @@ class Trainer:
                 )
         else:
             self.strategy = "auto"
-        
 
     def _create_dataloaders(self, ):
         raise NotImplementedError
 
-
     def fit(self):
-        assert self.train_dataloader is not None, "Please create dataloaders first" # TODO add proper assert
-        assert self.val_dataloader is not None, "Please create dataloaders first"
+        if not hasattr(self, 'train_dataloader'):
+            self._create_dataloaders()
         assert self.model is not None, "Please create model first"
         assert self.lightning_trainer is not None, "Please create lightning trainer first"
         self.lightning_trainer.fit(self.model, self.train_dataloader, self.val_dataloader)
